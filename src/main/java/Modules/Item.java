@@ -45,7 +45,7 @@ public class Item {
                     itemID = itemIDCheck;
                 }
             } while(!Objects.equals(itemID, itemIDCheck));
- 
+ // update comment
 
         itemName = userInput.readLine("Please enter the name of the Item you would like to create: ");
         unitPrice = userInput.readDouble("Please enter the price of the Item you would like to create: ");
