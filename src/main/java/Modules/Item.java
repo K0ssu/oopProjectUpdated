@@ -17,16 +17,6 @@ public class Item {
         this.unitPrice = unitPrice;
     }
 
-  /*  public void print() {
-        System.out.print("You have created an Item with the " + "\n" +
-                "ID    : " + this.itemIdentification + "\n"+
-                "Name  : " + this.itemName + "\n" +
-                "Price : " + this.itemPrice + "$");
-    }
-*/
-    //  public String createItem(String itemID, String itemName, double unitPrice){
-  //        return "";
-  //    }
     public static String createItem() {
         String itemID = "a";
         String itemName = "a";
@@ -45,7 +35,6 @@ public class Item {
                     itemID = itemIDCheck;
                 }
             } while(!Objects.equals(itemID, itemIDCheck));
- // update comment
 
         itemName = userInput.readLine("Please enter the name of the Item you would like to create: ");
         unitPrice = userInput.readDouble("Please enter the price of the Item you would like to create: ");
@@ -69,12 +58,12 @@ public class Item {
         return "The price of " + newItem + " has been changed to " + newPrice + ".";
     }
 
-   /*  public String updateItemName(String itemID, String newName){
+ /*   public String updateItemName(){
         do {
             if(itemName.isEmpty()) {
                 System.out.println("Invalid data for item.");
             }
-            itemPrice = userInput.readDouble("Please enter a new price for item"+ itemID +" : ");
+            unitPrice = userInput.readDouble("Please enter a new price for item"+ itemID +" : ");
         } while (itemPrice <= 0);
         itemID.itemPrice = newPrice;
         return "";
