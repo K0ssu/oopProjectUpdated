@@ -1,12 +1,17 @@
 package Modules;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Item {
 
     private String itemID;
     private String itemName;
     private double unitPrice;
+    public static ArrayList itemList = new ArrayList();
 
-    public Item(String itenID, String itemName, double unitPrice){
+
+    public Item(String itemID, String itemName, double unitPrice){
         this.itemID = itemID;
         this.itemName = itemName;
         this.unitPrice = unitPrice;
@@ -22,20 +27,34 @@ public class Item {
     //  public String createItem(String itemID, String itemName, double unitPrice){
   //        return "";
   //    }
-    public static String createItem(String itemID, String itemName, double unitPrice) {
+    public static String createItem() {
+        String itemID = "a";
+        String itemName = "a";
+        double unitPrice = 1;
+        String itemIDCheck = "b";
+
         do {
-            if(itemID.isEmpty() || itemName.isEmpty() || unitPrice <= 0) {
+            if(itemIDCheck.isEmpty() || itemName.isEmpty() || unitPrice <= 0) {
                 System.out.println("Invalid data for item.");
             }
-        itemID = userInput.readLine("Please enter the ID for the item you would like to create: ");
+            itemIDCheck = userInput.readLine("Please enter the ID for the item you would like to create: ");
+            do {
+                if (itemList.contains(itemIDCheck)) {
+                    itemIDCheck = userInput.readLine("ID is already in use, please enter a new one: ");
+                } else {
+                    itemID = itemIDCheck;
+                }
+            } while(!Objects.equals(itemID, itemIDCheck));
+ 
+
         itemName = userInput.readLine("Please enter the name of the Item you would like to create: ");
-        unitPrice = userInput.readDouble("Please enter the price of the item you would like to create: ");
+        unitPrice = userInput.readDouble("Please enter the price of the Item you would like to create: ");
 
         } while (itemID.isEmpty() || itemName.isEmpty() || unitPrice <= 0);
 
-        return "Item" + itemID + " was registered successfully.";
-
-    }
+        System.out.print("\nItem " + itemID + " was registered successfully. \n \n");
+        return itemID;
+            }
 
     public String updateItemPrice(String itemID, double newPrice) {
         Item anItem = new Item(itemID, itemName, unitPrice);
