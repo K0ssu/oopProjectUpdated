@@ -3,6 +3,8 @@ import facade.Facade;
 
 import java.util.Scanner;
 
+import static Modules.Item.itemList;
+
 public class menus {
 
     public static int reviewMenu() {
@@ -133,7 +135,7 @@ public class menus {
                 "2. Open Review options.\n" +
                 "3. Open Transaction History options.\n" +
                 "\n" +
-                "Type an option number:\n");
+                "Type an option number: ");
         //menuMain == 4;
         int value = 0;
         int choice = 0;
@@ -183,10 +185,12 @@ public class menus {
                     //Return to Main Menu
                     break;
                 case 1:
-                    //Modules.userInput.readLine("Enter the itemID")
-                    // Modules.Item.createItem(itemID, itemName, unitPrice);
-                    //Create an Item
+                    itemList.add(Modules.Item.createItem());
+
+                    //Create an Item Hello Mr.Harring!
+                    value = 2;
                     break;
+
                 case 2:
                     //Remove an Item
                     break;
